@@ -1,5 +1,6 @@
+import Image from "next/image";
 import Link from "next/link";
-import { MapPin, Mail, Phone, ShieldCheck } from "lucide-react";
+import { Mail, Phone, ShieldCheck } from "lucide-react";
 import { getPackages } from "@/lib/data/queries";
 
 export async function Footer() {
@@ -10,13 +11,14 @@ export async function Footer() {
     <footer className="bg-ceylon-900 text-white/80">
       <div className="mx-auto grid max-w-7xl gap-10 px-4 py-14 sm:px-6 md:grid-cols-4">
         <div className="md:col-span-1">
-          <Link href="/" className="flex items-center gap-2 text-white">
-            <span className="flex h-9 w-9 items-center justify-center rounded-lg bg-gold text-ceylon-900">
-              <MapPin className="h-5 w-5" />
-            </span>
-            <span className="text-lg font-bold">
-              Ceylon<span className="text-gold">Go</span>
-            </span>
+          <Link href="/" aria-label="Ceylon Go — home" className="inline-block">
+            <Image
+              src="/brand/logo-on-dark.png"
+              alt="Ceylon Go"
+              width={1501}
+              height={593}
+              className="h-10 w-auto"
+            />
           </Link>
           <p className="mt-4 text-sm leading-6 text-white/60">
             Private driver-guided journeys across Sri Lanka. Transparent pricing, tailored routes,
