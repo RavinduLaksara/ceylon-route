@@ -2,8 +2,9 @@ import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
   /* config options here */
-  cacheComponents: true,
-  partialPrefetching: true,
+  // NOTE: Cache Components ("use cache") hangs on the Cloudflare Workers runtime
+  // (its setTimeout implementation), so it is intentionally disabled. Public
+  // pages render dynamically instead — see `export const dynamic` in the pages.
   images: {
     // Cloudflare Workers has no built-in image optimizer; serve originals so
     // external Unsplash & Supabase Storage images load without a paid binding.

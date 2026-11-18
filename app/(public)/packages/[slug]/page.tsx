@@ -10,20 +10,7 @@ import { BookingSidebar } from "@/components/packages/BookingSidebar";
 
 type Params = { slug: string };
 
-// Known seed slugs — used as a fallback so the build still prerenders at least
-// one param when the Supabase `packages` table hasn't been seeded yet.
-// (Cache Components requires generateStaticParams to return ≥ 1 result.)
-const FALLBACK_SLUGS = [
-  "cultural-triangle-kandy-highlights",
-  "epic-sri-lanka-adventure",
-  "southern-coast-wildlife-safari",
-];
-
-export async function generateStaticParams(): Promise<Params[]> {
-  const packages = await getPackages();
-  if (packages.length === 0) return FALLBACK_SLUGS.map((slug) => ({ slug }));
-  return packages.map((p) => ({ slug: p.slug }));
-}
+export const dynamic = "force-dynamic";
 
 export async function generateMetadata({
   params,

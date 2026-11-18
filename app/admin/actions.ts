@@ -17,5 +17,7 @@ export async function revalidatePublic(tag: PublicTag) {
     data: { user },
   } = await supabase.auth.getUser();
   if (!user) return;
+  // Pages render dynamically (no "use cache"), so this is effectively a no-op,
+  // but revalidateTag's Next 16 signature still requires the profile argument.
   revalidateTag(CACHE_TAGS[tag], "max");
 }

@@ -8,6 +8,8 @@ export const metadata: Metadata = {
     "Browse CeylonRoute's private, driver-guided Sri Lanka tour packages — culture, wildlife, adventure and scenic routes with transparent pricing.",
 };
 
+export const dynamic = "force-dynamic";
+
 export default async function PackagesPage() {
   const [packages, styles, settings] = await Promise.all([
     getPackages(),
