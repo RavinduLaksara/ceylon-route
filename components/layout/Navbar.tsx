@@ -1,9 +1,10 @@
 "use client";
 
+import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
-import { Menu, X, MapPin } from "lucide-react";
+import { Menu, X } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { buildWhatsAppLink } from "@/lib/whatsapp";
 
@@ -46,17 +47,32 @@ export function Navbar({ whatsappNumber }: { whatsappNumber: string }) {
         <Link
           href="/"
           onClick={() => setOpen(false)}
-          className={cn(
-            "flex items-center gap-2 transition-colors",
-            light ? "text-slate-900" : "text-white",
-          )}
+          aria-label="Ceylon Go — home"
+          className="relative block h-9 w-[116px] sm:h-10 sm:w-[128px]"
         >
-          <span className="flex h-9 w-9 items-center justify-center rounded-lg bg-gold text-ceylon-900">
-            <MapPin className="h-5 w-5" />
-          </span>
-          <span className="text-lg font-bold tracking-tight">
-            Ceylon<span className="text-gold">Go</span>
-          </span>
+          {/* White-text logo for the dark hero top; slate-text for white nav. */}
+          <Image
+            src="/brand/logo-on-dark.png"
+            alt="Ceylon Go"
+            fill
+            priority
+            sizes="130px"
+            className={cn(
+              "object-contain object-left transition-opacity duration-300",
+              light ? "opacity-0" : "opacity-100",
+            )}
+          />
+          <Image
+            src="/brand/logo-on-light.png"
+            alt=""
+            aria-hidden
+            fill
+            sizes="130px"
+            className={cn(
+              "object-contain object-left transition-opacity duration-300",
+              light ? "opacity-100" : "opacity-0",
+            )}
+          />
         </Link>
 
         <div className="hidden items-center gap-8 md:flex">
