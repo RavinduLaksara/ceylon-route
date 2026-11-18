@@ -1,6 +1,9 @@
 {
   "$schema": "node_modules/wrangler/config-schema.json",
-  "name": "ceylonroute",
+  // Must match the Cloudflare Worker name exactly (Workers Builds derives it
+  // from the repo, "ceylon-route"), so OpenNext's WORKER_SELF_REFERENCE binding
+  // resolves to this same Worker.
+  "name": "ceylon-route",
   "main": ".open-next/worker.js",
   "compatibility_date": "2025-04-01",
   // nodejs_compat is required so the `resend` and Supabase server SDKs
