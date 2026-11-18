@@ -17,7 +17,7 @@ export interface CalculatePriceArgs {
 }
 
 /**
- * Core pricing formula for CeylonRoute.
+ * Core pricing formula for Ceylon Go.
  *
  *   Total = (approxDistanceKm x perKmRate) + (durationDays x driverDailyBatta)
  *

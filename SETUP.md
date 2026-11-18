@@ -1,4 +1,4 @@
-# CeylonRoute — Backend Setup (Phase 3 & 4)
+# Ceylon Go — Backend Setup (Phase 3 & 4)
 
 The public site, online booking, and admin dashboard are all wired to **Supabase**
 (Postgres + Auth + Storage) and **Resend** (email). Follow these steps once to go live.
@@ -11,7 +11,7 @@ Already present in this project:
 NEXT_PUBLIC_SUPABASE_URL=...
 NEXT_PUBLIC_SUPABASE_ANON_KEY=...
 RESEND_API_KEY=...
-RESEND_FROM=CeylonRoute <onboarding@resend.dev>
+RESEND_FROM=Ceylon Go <onboarding@resend.dev>
 ```
 
 - `RESEND_FROM` defaults to Resend's shared sender, which only delivers to your own
@@ -25,7 +25,7 @@ In the Supabase dashboard → **SQL Editor**, paste and run the whole of
 [`supabase/schema.sql`](supabase/schema.sql). It is safe to re-run. It creates:
 
 - Tables: `settings`, `packages`, `bookings`, `reviews`
-- A `booking_ref` trigger (`CR-YYYY-NNNN`) and a `create_booking` RPC
+- A `booking_ref` trigger (`CG-YYYY-NNNN`) and a `create_booking` RPC
 - Row Level Security (public can insert bookings/reviews & read public data;
   only signed-in admins can read bookings or manage content)
 - A public Storage bucket `tour-images`

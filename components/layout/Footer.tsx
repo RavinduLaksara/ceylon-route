@@ -15,7 +15,7 @@ export async function Footer() {
               <MapPin className="h-5 w-5" />
             </span>
             <span className="text-lg font-bold">
-              Ceylon<span className="text-gold">Route</span>
+              Ceylon<span className="text-gold">Go</span>
             </span>
           </Link>
           <p className="mt-4 text-sm leading-6 text-white/60">
@@ -39,7 +39,7 @@ export async function Footer() {
             </li>
             <li>
               <Link href="/#trust" className="transition-colors hover:text-gold">
-                Why CeylonRoute
+                Why Ceylon Go
               </Link>
             </li>
           </ul>
@@ -68,7 +68,7 @@ export async function Footer() {
               <Phone className="h-4 w-4 text-gold" /> +94 77 029 1675
             </li>
             <li className="flex items-center gap-2">
-              <Mail className="h-4 w-4 text-gold" /> hello@ceylonroute.lk
+              <Mail className="h-4 w-4 text-gold" /> ceylongotour@gmail.com
             </li>
             <li className="flex items-center gap-2">
               <ShieldCheck className="h-4 w-4 text-gold" /> Government-certified drivers
@@ -79,7 +79,7 @@ export async function Footer() {
 
       <div className="border-t border-white/10">
         <div className="mx-auto flex max-w-7xl flex-col items-center justify-between gap-2 px-4 py-5 text-xs text-white/50 sm:flex-row sm:px-6">
-          <p>© {year} CeylonRoute. All rights reserved.</p>
+          <p>© {year} Ceylon Go. All rights reserved.</p>
           <p>Fuel · Driver allowance · Tolls — always included. No hidden charges.</p>
         </div>
       </div>

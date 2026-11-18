@@ -3,26 +3,22 @@ import { ArrowRight } from "lucide-react";
 import { Hero } from "@/components/home/Hero";
 import { FleetShowcase } from "@/components/home/FleetShowcase";
 import { TrustSection } from "@/components/home/TrustSection";
-import { ReviewsSection } from "@/components/home/ReviewsSection";
+// Testimonials/Reviews temporarily hidden — replaced by the parallax banner.
+// import { ReviewsSection } from "@/components/home/ReviewsSection";
+import { ParallaxBanner } from "@/components/home/ParallaxBanner";
 import { PackageCard } from "@/components/packages/PackageCard";
 import { SectionHeading } from "@/components/ui/SectionHeading";
 import { Reveal } from "@/components/ui/Reveal";
 import { fleet } from "@/data/mockTours";
-import {
-  getApprovedReviews,
-  getFeaturedPackages,
-  getPackages,
-  getSettings,
-} from "@/lib/data/queries";
+import { getFeaturedPackages, getPackages, getSettings } from "@/lib/data/queries";
 
 export const dynamic = "force-dynamic";
 
 export default async function Home() {
-  const [settings, packages, featured, reviews] = await Promise.all([
+  const [settings, packages, featured] = await Promise.all([
     getSettings(),
     getPackages(),
     getFeaturedPackages(),
-    getApprovedReviews(),
   ]);
 
   return (
@@ -59,7 +55,14 @@ export default async function Home() {
 
       <TrustSection />
 
-      <ReviewsSection reviews={reviews} />
+      {/*
+        Testimonials/Reviews temporarily hidden. To re-enable: add
+        `getApprovedReviews()` back to the Promise.all above (as `reviews`),
+        restore the ReviewsSection import, and render:
+        <ReviewsSection reviews={reviews} />
+      */}
+
+      <ParallaxBanner whatsappNumber={settings.whatsappNumber} />
     </>
   );
 }

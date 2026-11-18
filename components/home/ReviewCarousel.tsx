@@ -26,7 +26,7 @@ export function ReviewCarousel({
         <SectionHeading
           eyebrow="Traveller Stories"
           title="Loved by travellers from around the world"
-          description="Real, verified reviews from guests who explored Sri Lanka with a CeylonRoute driver-guide."
+          description="Real, verified reviews from guests who explored Sri Lanka with a Ceylon Go driver-guide."
         />
 
         <div className="relative mt-12">

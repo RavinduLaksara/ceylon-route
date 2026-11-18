@@ -5,7 +5,7 @@ import { getPackages, getSettings, getTravelStyles } from "@/lib/data/queries";
 export const metadata: Metadata = {
   title: "Tour Packages",
   description:
-    "Browse CeylonRoute's private, driver-guided Sri Lanka tour packages — culture, wildlife, adventure and scenic routes with transparent pricing.",
+    "Browse Ceylon Go's private, driver-guided Sri Lanka tour packages — culture, wildlife, adventure and scenic routes with transparent pricing.",
 };
 
 export const dynamic = "force-dynamic";

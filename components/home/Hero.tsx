@@ -35,7 +35,7 @@ export function Hero({
   });
 
   return (
-    <section className="relative isolate overflow-hidden">
+    <section className="relative isolate -mt-[68px] overflow-hidden">
       {/* Background image */}
       <div className="absolute inset-0 -z-10">
         <Image

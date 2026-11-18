@@ -14,8 +14,8 @@ const geistMono = Geist_Mono({
 
 export const metadata: Metadata = {
   title: {
-    default: "CeylonRoute — Private Driver-Guided Tours of Sri Lanka",
-    template: "%s · CeylonRoute",
+    default: "Ceylon Go — Private Driver-Guided Tours of Sri Lanka",
+    template: "%s · Ceylon Go",
   },
   description:
     "Explore Sri Lanka at your own pace in a private A/C vehicle with a dedicated local driver-guide. Transparent per-km pricing, zero hidden charges, fully tailored routes.",

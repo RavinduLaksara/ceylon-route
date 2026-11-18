@@ -45,7 +45,7 @@ export function AdminShell({ children }: { children: React.ReactNode }) {
           <MapPin className="h-4 w-4" />
         </span>
         <span className="font-bold">
-          Ceylon<span className="text-gold">Route</span>
+          Ceylon<span className="text-gold">Go</span>
         </span>
       </Link>
       {nav.map((item) => {
@@ -88,7 +88,7 @@ export function AdminShell({ children }: { children: React.ReactNode }) {
       {/* Mobile top bar */}
       <div className="flex items-center justify-between bg-ceylon-900 p-4 text-white lg:hidden">
         <span className="font-bold">
-          Ceylon<span className="text-gold">Route</span> Admin
+          Ceylon<span className="text-gold">Go</span> Admin
         </span>
         <button type="button" onClick={() => setOpen(true)} aria-label="Open menu">
           <Menu className="h-6 w-6" />
