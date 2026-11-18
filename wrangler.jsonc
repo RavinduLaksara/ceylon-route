@@ -9,6 +9,15 @@
   // nodejs_compat is required so the `resend` and Supabase server SDKs
   // (which use Node built-ins) run on the Workers runtime.
   "compatibility_flags": ["nodejs_compat"],
+  // Runtime vars. Only PUBLIC values live here — the Supabase URL and the
+  // `sb_publishable_...` anon key are public by design, and RESEND_FROM is just
+  // a sender address. The real secret, RESEND_API_KEY, is NOT here — set it as a
+  // Secret in the Cloudflare dashboard so it stays out of the repo.
+  "vars": {
+    "NEXT_PUBLIC_SUPABASE_URL": "https://lnfoiqmiitmboyilcofs.supabase.co",
+    "NEXT_PUBLIC_SUPABASE_ANON_KEY": "sb_publishable_y6A0EXeJTeajrx3L8jRsXQ_n3Tdpa9V",
+    "RESEND_FROM": "CeylonRoute <onboarding@resend.dev>"
+  },
   "assets": {
     "directory": ".open-next/assets",
     "binding": "ASSETS"
