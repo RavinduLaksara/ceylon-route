@@ -86,12 +86,12 @@ async function sendAdminEmail(
 
   const clientWa = buildWhatsAppLink({
     whatsappNumber: normalizePhone(p.whatsappNo),
-    extraNote: `Regarding your CeylonRoute booking ${booking.booking_ref}.`,
+    extraNote: `Regarding your Ceylon Go booking ${booking.booking_ref}.`,
   });
 
   const resend = new Resend(apiKey);
   await resend.emails.send({
-    from: process.env.RESEND_FROM || "CeylonRoute <onboarding@resend.dev>",
+    from: process.env.RESEND_FROM || "Ceylon Go <onboarding@resend.dev>",
     to: adminEmail,
     subject: `New booking ${booking.booking_ref} — ${p.fullName}`,
     html: buildEmailHtml(booking, p, clientWa),

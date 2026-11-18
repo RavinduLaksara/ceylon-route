@@ -232,7 +232,7 @@ function buildConfirmWa(b: BookingRow): string {
   const lines = [
     `Hello ${b.full_name},`,
     "",
-    `Your CeylonRoute booking ${b.booking_ref} is CONFIRMED. ✅`,
+    `Your Ceylon Go booking ${b.booking_ref} is CONFIRMED. ✅`,
     `• Tour: ${b.packages?.title ?? "Airport / Point-to-Point transfer"}`,
     `• Vehicle: ${vehicleLabel(b.vehicle_type)}`,
     `• Pickup: ${b.pickup_date} — ${b.pickup_location}`,

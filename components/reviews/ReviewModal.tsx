@@ -81,7 +81,7 @@ export function ReviewModal({
         <div className="flex items-start justify-between">
           <div>
             <h2 className="text-lg font-bold text-ink">Write a review</h2>
-            <p className="mt-1 text-sm text-ink/60">Share your CeylonRoute experience.</p>
+            <p className="mt-1 text-sm text-ink/60">Share your Ceylon Go experience.</p>
           </div>
           <button
             type="button"

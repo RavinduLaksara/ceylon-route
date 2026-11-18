@@ -29,7 +29,7 @@ export function buildWhatsAppMessage({
   estimatedTotal,
   extraNote,
 }: Omit<WhatsAppLinkArgs, 'whatsappNumber'>): string {
-  const lines: string[] = ['Hello CeylonRoute! I would like to customize a private tour.'];
+  const lines: string[] = ['Hello Ceylon Go! I would like to customize a private tour.'];
 
   if (packageTitle) lines.push(`• Package: ${packageTitle}`);
   if (durationLabel) lines.push(`• Duration: ${durationLabel}`);

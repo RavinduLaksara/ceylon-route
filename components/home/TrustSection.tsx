@@ -47,7 +47,7 @@ export function TrustSection() {
     <section id="trust" className="scroll-mt-20 bg-ceylon-900 py-20 text-white sm:py-24">
       <div className="mx-auto max-w-7xl px-4 sm:px-6">
         <SectionHeading
-          eyebrow="Why CeylonRoute"
+          eyebrow="Why Ceylon Go"
           title="Built on trust, transparency & local care"
           description="We designed every part of the journey to earn your confidence — from the first WhatsApp message to the final airport drop-off."
           className="[&_h2]:text-white [&_p]:text-white/70"

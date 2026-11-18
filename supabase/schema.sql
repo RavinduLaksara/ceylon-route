@@ -1,5 +1,5 @@
 -- ============================================================================
--- CeylonRoute — Supabase schema (Phase 3)
+-- Ceylon Go — Supabase schema (Phase 3)
 -- Run this whole file in the Supabase SQL Editor.
 -- Safe to re-run: uses IF NOT EXISTS / DROP POLICY IF EXISTS / ON CONFLICT.
 -- ============================================================================
@@ -39,7 +39,7 @@ create trigger trg_settings_updated_at
 -- IMPORTANT: change admin_email to the inbox that should receive booking alerts
 -- (here, or later in the admin Settings page).
 insert into public.settings (whatsapp_number, admin_email)
-select '+94770291675', 'admin@ceylonroute.lk'
+select '+94770291675', 'ceylongotour@gmail.com'
 where not exists (select 1 from public.settings);
 
 -- ----------------------------------------------------------------------------
@@ -94,14 +94,14 @@ create table if not exists public.bookings (
   created_at           timestamptz not null default now()
 );
 
--- Human-friendly booking reference: CR-<year>-<seq>, e.g. CR-2026-1001
+-- Human-friendly booking reference: CG-<year>-<seq>, e.g. CG-2026-1001
 create sequence if not exists public.booking_ref_seq start with 1001;
 
 create or replace function public.set_booking_ref()
 returns trigger language plpgsql as $$
 begin
   if new.booking_ref is null then
-    new.booking_ref := 'CR-' || to_char(now(), 'YYYY') || '-' || nextval('public.booking_ref_seq');
+    new.booking_ref := 'CG-' || to_char(now(), 'YYYY') || '-' || nextval('public.booking_ref_seq');
   end if;
   return new;
 end;

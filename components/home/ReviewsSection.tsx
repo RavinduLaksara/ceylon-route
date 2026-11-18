@@ -37,7 +37,7 @@ export function ReviewsSection({ reviews }: { reviews: Review[] }) {
             <SectionHeading
               eyebrow="Traveller Stories"
               title="Be the first to share your journey"
-              description="Travelled with CeylonRoute? Your story helps future travellers plan with confidence."
+              description="Travelled with Ceylon Go? Your story helps future travellers plan with confidence."
             />
             <div className="mt-8 flex justify-center">
               <Star className="h-10 w-10 text-gold/40" />

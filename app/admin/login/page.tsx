@@ -44,7 +44,7 @@ export default function AdminLoginPage() {
             <MapPin className="h-5 w-5" />
           </span>
           <span className="text-lg font-bold">
-            Ceylon<span className="text-gold">Route</span>
+            Ceylon<span className="text-gold">Go</span>
           </span>
         </Link>
 

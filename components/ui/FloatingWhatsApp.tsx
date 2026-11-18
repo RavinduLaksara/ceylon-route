@@ -8,7 +8,7 @@ import { buildWhatsAppLink } from "@/lib/whatsapp";
 export function FloatingWhatsApp({ whatsappNumber }: { whatsappNumber: string }) {
   const href = buildWhatsAppLink({
     whatsappNumber,
-    extraNote: "I found you via the CeylonRoute website.",
+    extraNote: "I found you via the Ceylon Go website.",
   });
 
   return (
@@ -16,7 +16,7 @@ export function FloatingWhatsApp({ whatsappNumber }: { whatsappNumber: string })
       href={href}
       target="_blank"
       rel="noopener noreferrer"
-      aria-label="Chat with CeylonRoute on WhatsApp"
+      aria-label="Chat with Ceylon Go on WhatsApp"
       className="group fixed bottom-5 right-5 z-50 flex items-center gap-2 rounded-full bg-[#25D366] px-4 py-3 text-white shadow-lg shadow-black/20 ring-1 ring-black/5 transition-transform hover:scale-105 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/70 sm:bottom-7 sm:right-7"
       style={{ animation: "var(--animate-float)" }}
     >

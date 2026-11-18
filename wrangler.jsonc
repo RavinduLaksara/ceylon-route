@@ -16,7 +16,7 @@
   "vars": {
     "NEXT_PUBLIC_SUPABASE_URL": "https://lnfoiqmiitmboyilcofs.supabase.co",
     "NEXT_PUBLIC_SUPABASE_ANON_KEY": "sb_publishable_y6A0EXeJTeajrx3L8jRsXQ_n3Tdpa9V",
-    "RESEND_FROM": "CeylonRoute <onboarding@resend.dev>"
+    "RESEND_FROM": "Ceylon Go <onboarding@resend.dev>"
   },
   "assets": {
     "directory": ".open-next/assets",

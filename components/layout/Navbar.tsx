@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
 import { Menu, X, MapPin } from "lucide-react";
 import { cn } from "@/lib/utils";
@@ -10,19 +11,25 @@ const navLinks = [
   { href: "/#fleet", label: "Fleet" },
   { href: "/packages", label: "Tour Packages" },
   { href: "/#trust", label: "Why Us" },
-  { href: "/#reviews", label: "Reviews" },
+  // Reviews temporarily hidden (testimonials section is off) — re-add when back:
+  // { href: "/#reviews", label: "Reviews" },
 ];
 
 export function Navbar({ whatsappNumber }: { whatsappNumber: string }) {
+  const pathname = usePathname();
+  const isHome = pathname === "/";
   const [open, setOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
 
   useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 24);
+    const onScroll = () => setScrolled(window.scrollY > 20);
     onScroll();
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
+
+  // Light chrome (white bg, dark text) everywhere except the homepage hero top.
+  const light = !isHome || scrolled;
 
   const waHref = buildWhatsAppLink({ whatsappNumber });
 
@@ -30,18 +37,25 @@ export function Navbar({ whatsappNumber }: { whatsappNumber: string }) {
     <header
       className={cn(
         "sticky top-0 z-40 w-full transition-all duration-300",
-        scrolled
-          ? "bg-ceylon-800/95 shadow-md shadow-black/10 backdrop-blur"
-          : "bg-transparent",
+        light
+          ? "border-b border-slate-100 bg-white/95 shadow-sm backdrop-blur-md"
+          : "bg-gradient-to-b from-black/50 to-transparent",
       )}
     >
       <nav className="mx-auto flex max-w-7xl items-center justify-between px-4 py-4 sm:px-6">
-        <Link href="/" className="flex items-center gap-2 text-white" onClick={() => setOpen(false)}>
+        <Link
+          href="/"
+          onClick={() => setOpen(false)}
+          className={cn(
+            "flex items-center gap-2 transition-colors",
+            light ? "text-slate-900" : "text-white",
+          )}
+        >
           <span className="flex h-9 w-9 items-center justify-center rounded-lg bg-gold text-ceylon-900">
             <MapPin className="h-5 w-5" />
           </span>
           <span className="text-lg font-bold tracking-tight">
-            Ceylon<span className="text-gold">Route</span>
+            Ceylon<span className="text-gold">Go</span>
           </span>
         </Link>
 
@@ -50,7 +64,12 @@ export function Navbar({ whatsappNumber }: { whatsappNumber: string }) {
             <Link
               key={link.href}
               href={link.href}
-              className="text-sm font-medium text-white/90 transition-colors hover:text-gold"
+              className={cn(
+                "text-sm font-medium transition-colors",
+                light
+                  ? "text-slate-700 hover:text-[#0F4C3A]"
+                  : "text-white/90 hover:text-gold",
+              )}
             >
               {link.label}
             </Link>
@@ -67,7 +86,7 @@ export function Navbar({ whatsappNumber }: { whatsappNumber: string }) {
 
         <button
           type="button"
-          className="text-white md:hidden"
+          className={cn("md:hidden", light ? "text-slate-900" : "text-white")}
           aria-label={open ? "Close menu" : "Open menu"}
           aria-expanded={open}
           onClick={() => setOpen((v) => !v)}
@@ -77,14 +96,26 @@ export function Navbar({ whatsappNumber }: { whatsappNumber: string }) {
       </nav>
 
       {open && (
-        <div className="border-t border-white/10 bg-ceylon-800/98 backdrop-blur md:hidden">
+        <div
+          className={cn(
+            "border-t md:hidden",
+            light
+              ? "border-slate-100 bg-white"
+              : "border-white/10 bg-ceylon-900/98 backdrop-blur",
+          )}
+        >
           <div className="mx-auto flex max-w-7xl flex-col gap-1 px-4 py-4">
             {navLinks.map((link) => (
               <Link
                 key={link.href}
                 href={link.href}
                 onClick={() => setOpen(false)}
-                className="rounded-lg px-3 py-2 text-base font-medium text-white/90 transition-colors hover:bg-white/10 hover:text-gold"
+                className={cn(
+                  "rounded-lg px-3 py-2 text-base font-medium transition-colors",
+                  light
+                    ? "text-slate-700 hover:bg-slate-50 hover:text-[#0F4C3A]"
+                    : "text-white/90 hover:bg-white/10 hover:text-gold",
+                )}
               >
                 {link.label}
               </Link>
