@@ -15,6 +15,8 @@ import {
   getSettings,
 } from "@/lib/data/queries";
 
+export const dynamic = "force-dynamic";
+
 export default async function Home() {
   const [settings, packages, featured, reviews] = await Promise.all([
     getSettings(),

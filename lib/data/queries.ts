@@ -1,4 +1,3 @@
-import { cacheLife, cacheTag } from "next/cache";
 import type { PricingSettings, Review, TourPackage } from "@/types/tour";
 import { createPublicClient } from "@/lib/supabase/public";
 import {
@@ -10,7 +9,16 @@ import {
   type DbSettings,
 } from "@/lib/supabase/types";
 
-/** Cache tags — admin mutations call revalidateTag() with these. */
+/**
+ * Live Supabase reads for the public pages.
+ *
+ * Cache Components / `"use cache"` hangs on the Cloudflare Workers runtime, so
+ * these are plain dynamic reads — the pages that use them opt into dynamic
+ * rendering (`export const dynamic = "force-dynamic"`), which keeps data fresh
+ * so admin edits appear immediately.
+ */
+
+/** Tag names kept for the admin revalidation helper (no-op without caching). */
 export const CACHE_TAGS = {
   settings: "settings",
   packages: "packages",
@@ -25,9 +33,6 @@ const DEFAULT_SETTINGS: PricingSettings = {
 };
 
 export async function getSettings(): Promise<PricingSettings> {
-  "use cache";
-  cacheLife("hours");
-  cacheTag(CACHE_TAGS.settings);
   try {
     const supabase = createPublicClient();
     const { data, error } = await supabase
@@ -43,9 +48,6 @@ export async function getSettings(): Promise<PricingSettings> {
 }
 
 export async function getPackages(): Promise<TourPackage[]> {
-  "use cache";
-  cacheLife("hours");
-  cacheTag(CACHE_TAGS.packages);
   try {
     const supabase = createPublicClient();
     const { data, error } = await supabase
@@ -68,9 +70,6 @@ export async function getFeaturedPackages(): Promise<TourPackage[]> {
 export async function getPackageBySlug(
   slug: string,
 ): Promise<TourPackage | null> {
-  "use cache";
-  cacheLife("hours");
-  cacheTag(CACHE_TAGS.packages);
   try {
     const supabase = createPublicClient();
     const { data, error } = await supabase
@@ -93,9 +92,6 @@ export async function getTravelStyles(): Promise<string[]> {
 }
 
 export async function getApprovedReviews(): Promise<Review[]> {
-  "use cache";
-  cacheLife("hours");
-  cacheTag(CACHE_TAGS.reviews);
   try {
     const supabase = createPublicClient();
     const { data, error } = await supabase
