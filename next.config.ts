@@ -5,6 +5,9 @@ const nextConfig: NextConfig = {
   cacheComponents: true,
   partialPrefetching: true,
   images: {
+    // Cloudflare Workers has no built-in image optimizer; serve originals so
+    // external Unsplash & Supabase Storage images load without a paid binding.
+    unoptimized: true,
     remotePatterns: [
       {
         protocol: "https",
